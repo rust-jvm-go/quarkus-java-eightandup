@@ -3,11 +3,13 @@ package initiative.quarkus.java.eightandup.domain;
 import initiative.quarkus.java.eightandup.services.IStarService;
 import lombok.Builder;
 
+import java.math.BigDecimal;
+
 @Builder
-public record RedDwarf(double brightness) implements IStarService {
+public record RedDwarf(BigDecimal brightness) implements IStarService {
 
     @Override
-    public double density() {
-        return brightness * 2;
+    public BigDecimal density() {
+        return brightness.multiply(BigDecimal.valueOf(2));
     }
 }

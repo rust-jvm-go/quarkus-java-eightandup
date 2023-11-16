@@ -1,8 +1,10 @@
 package initiative.quarkus.java.eightandup.services;
 
+import java.math.BigDecimal;
+
 public interface IStarService {
 
-    double brightness();
+    BigDecimal brightness();
 
-    double density();
+    BigDecimal density();
 }
