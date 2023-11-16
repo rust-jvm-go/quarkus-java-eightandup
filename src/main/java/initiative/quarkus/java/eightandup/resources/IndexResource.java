@@ -32,9 +32,16 @@ public class IndexResource {
 
         logger.info("IN calculateDensity...");
 
-        var redDwarf = new RedDwarf(brightness);
-        var d = String.valueOf(redDwarf.density());
-        logger.info(">>>>> density = " + d);
+        var redDwarf1 = new RedDwarf(brightness);
+        var d = String.valueOf(redDwarf1.density());
+        logger.info(">>>>> density (record) = " + d);
+
+        var redDwarf2 = RedDwarf
+                .builder()
+                .brightness(brightness)
+                .build();
+        d = String.valueOf(redDwarf2.density());
+        logger.info(">>>>> density (lombok) = " + d);
 
         logger.info("LEAVING calculateDensity...");
         return d;
