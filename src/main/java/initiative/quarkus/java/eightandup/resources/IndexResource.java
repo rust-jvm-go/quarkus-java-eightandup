@@ -2,7 +2,6 @@ package initiative.quarkus.java.eightandup.resources;
 
 import initiative.quarkus.java.eightandup.domain.RedDwarf;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
