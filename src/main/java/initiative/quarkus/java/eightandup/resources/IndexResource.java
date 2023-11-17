@@ -1,6 +1,9 @@
 package initiative.quarkus.java.eightandup.resources;
 
 import initiative.quarkus.java.eightandup.domain.RedDwarf;
+import initiative.quarkus.java.eightandup.services.IStarService;
+import initiative.quarkus.java.eightandup.services.impl.StarServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
@@ -14,6 +17,9 @@ import java.util.logging.Logger;
 public class IndexResource {
 
     private final Logger logger;
+
+    @Inject
+    IStarService starService;
 
     public IndexResource() {
         this.logger = Logger.getLogger(this.getClass().getName());
@@ -39,12 +45,9 @@ public class IndexResource {
         var d = String.valueOf(redDwarf1.density().toPlainString());
         logger.info(">>>>> density (record) = " + d);
 
-        var redDwarf2 = RedDwarf
-                .builder()
-                .brightness(brightness)
-                .build();
-        d = String.valueOf(redDwarf2.density().toPlainString());
-        logger.info(">>>>> density (lombok) = " + d);
+        this.starService.setBrightness(BigDecimal.valueOf(10));
+        d = String.valueOf(this.starService.density().toPlainString());
+        logger.info(">>>>> density (service) = " + d);
 
         logger.info("LEAVING calculateDensity...");
         return d;
