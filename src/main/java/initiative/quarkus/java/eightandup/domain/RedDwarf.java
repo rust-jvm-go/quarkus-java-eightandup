@@ -12,4 +12,11 @@ public record RedDwarf(BigDecimal brightness) implements IStarService {
     public BigDecimal density() {
         return brightness.multiply(BigDecimal.valueOf(2));
     }
+
+    /**
+     * @param brightness Brightness
+     */
+    @Override
+    public void setBrightness(BigDecimal brightness) {
+    }
 }

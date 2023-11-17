@@ -7,4 +7,6 @@ public interface IStarService {
     BigDecimal brightness();
 
     BigDecimal density();
+
+    void setBrightness(BigDecimal brightness);
 }
